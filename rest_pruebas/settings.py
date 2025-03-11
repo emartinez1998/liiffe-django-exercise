@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'empleados',
     'experiencias',
+    'servicios',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +133,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STRIPE_SECRET_KEY = "sk_test_51J33pPHlMBQxeHElrb0zxBEKrYuEktSEb0Q9jo9A7BjsXwO5617hHIbLkgosvW2WKazilAJmRD7Te0IsiJnOm3h300bSk8giBC"
 
 
 REST_FRAMEWORK = {    
