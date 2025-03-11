@@ -2,6 +2,27 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import dj_database_url
+import os
+
+
+BASE_DIR = ""
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+}
+
+ALLOWED_HOSTS = ["*"]  # Puedes especificar tu dominio luego
+
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'  # Agrega esto    
+]
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 def main():
