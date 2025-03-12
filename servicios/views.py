@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import re
 import psycopg2
 from django.conf import settings
-
+import certifi
 
 # TripAdvisor API Key
 TRIPADVISOR_KEY = '4DA558B86CE54BF883B26708661637C8'
@@ -82,7 +82,7 @@ def obtenerLugar(idPlace):
     try:
         url = f"https://api.content.tripadvisor.com/api/v1/location/{idPlace}/details?key={TRIPADVISOR_KEY}&language=es&currency=USD"
         headers = {"accept": "application/json"}
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, verify=certifi.where())
         return response.json()
     except:
         return {"error": "Lugar no encontrado"}
