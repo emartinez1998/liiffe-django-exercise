@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-gh-u2#87h+8xt6=&5lx_$m(5)y82zx%bzit06_lz=vg6z%b+oj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "liiffe-django-exercise-production.up.railway.app",
+    "127.0.0.1",  
+    "localhost",
+]
 
 
 # Application definition
