@@ -12,7 +12,7 @@ DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
-ALLOWED_HOSTS = ["*"]  # Puedes especificar tu dominio luego
+ALLOWED_HOSTS = ["liiffe-django-exercise-production.up.railway.app"]  # Puedes especificar tu dominio luego
 
 
 MIDDLEWARE = [
