@@ -94,17 +94,17 @@ def consultarLugares(category, tag, place):
     try:
         # Conexión a la base de datos
         conexion = psycopg2.connect(
-            host="localhost",
+            host="turntable.proxy.rlwy.net",
             user="postgres",
-            password="12345678",
-            database="liiffe"
+            password="qzcdKJjCquXJMBHznLOZRRkfwcHnchBt",
+            database="railway"
         )
         cursor = conexion.cursor()
 
         
         consulta_sql = """
             SELECT id_element, category_url    
-            FROM public."PlacesTripAdvisor" 
+            FROM public.categoriestripadvisor  
             WHERE category = %s 
             AND tag = %s 
             AND place = %s;
