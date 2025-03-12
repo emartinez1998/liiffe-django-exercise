@@ -131,7 +131,6 @@ def consultarLugares(category, tag, place):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
 def obtener_lugares(request):
     """Endpoint para obtener detalles de lugares desde TripAdvisor."""
 
