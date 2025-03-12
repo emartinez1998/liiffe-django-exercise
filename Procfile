@@ -1,1 +1,1 @@
-web: gunicorn tripadvisor_api.wsgi
+web: gunicorn rest_pruebas.wsgi
