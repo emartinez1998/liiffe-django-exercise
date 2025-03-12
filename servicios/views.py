@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from bs4 import BeautifulSoup
 import re
 import psycopg2
+from django.conf import settings
 
 
 # TripAdvisor API Key
@@ -91,17 +92,20 @@ def consultarLugares(category, tag, place):
     
     conexion = None
     cursor = None
+    
+    # Obtener configuración de la base de datos
+    db_config = settings.DATABASES['deploy']
+    
     try:
         # Conexión a la base de datos
-        conexion = psycopg2.connect(
-            host="turntable.proxy.rlwy.net",
-            user="postgres",
-            password="qzcdKJjCquXJMBHznLOZRRkfwcHnchBt",
-            database="railway"
+        conexion = psycopg2.connect(            
+            host=db_config['HOST'],
+            user=db_config['USER'],
+            password=db_config['PASSWORD'],
+            database=db_config['NAME'],
+            port=db_config['PORT']
         )
-        cursor = conexion.cursor()
-
-        
+        cursor = conexion.cursor()        
         consulta_sql = """
             SELECT id_element, category_url    
             FROM public.categoriestripadvisor  
@@ -127,9 +131,6 @@ def consultarLugares(category, tag, place):
 
 
 
-
-
-
 @api_view(['GET'])
 def obtener_lugares(request):
     """Endpoint para obtener detalles de lugares desde TripAdvisor."""
@@ -138,6 +139,8 @@ def obtener_lugares(request):
     categoria = request.GET.get('categoria', 'ESTABLECIMIENTO')
     tag = request.GET.get('tag', 'POSTRES')
 
+    print("categoria ",categoria)
+    print("tag ",tag)
     
     # Criterios por defecto
     lugar = "RESTAURANTE"    

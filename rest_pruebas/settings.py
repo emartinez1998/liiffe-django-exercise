@@ -90,7 +90,15 @@ DATABASES = {
         'PASSWORD': '12345678',
         'HOST': 'localhost',  # Cambia si usas otro host
         'PORT': '5432',       # Cambia si usas otro puerto
-    }
+    },
+    'deploy': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'qzcdKJjCquXJMBHznLOZRRkfwcHnchBt',
+        'HOST': 'turntable.proxy.rlwy.net',  # Cambia si usas otro host
+        'PORT': '35502',       # Cambia si usas otro puerto
+    },
 }
 
 
