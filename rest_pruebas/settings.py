@@ -82,16 +82,8 @@ WSGI_APPLICATION = 'rest_pruebas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+DATABASES = {   
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Testing',
-        'USER': 'postgres',
-        'PASSWORD': '12345678',
-        'HOST': 'localhost',  # Cambia si usas otro host
-        'PORT': '5432',       # Cambia si usas otro puerto
-    },
-    'deploy': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',

@@ -94,7 +94,7 @@ def consultarLugares(category, tag, place):
     cursor = None
     
     # Obtener configuración de la base de datos
-    db_config = settings.DATABASES['deploy']
+    db_config = settings.DATABASES['default']
     
     try:
         # Conexión a la base de datos
