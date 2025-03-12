@@ -43,7 +43,7 @@ def crearURL(ciudad, lugar, categoria, criterio):
 def scrapingTripAdvisor(urlTripAdvisor):
     """Hace scraping a la URL y guarda el HTML en un archivo."""
     try:
-        response = requests.get(urlTripAdvisor, headers=headers, proxies=proxies, verify=certifi.where())
+        response = requests.get(urlTripAdvisor, headers=headers, proxies=proxies, verify=False)
 
         with open('tripadvisor_result.html', 'w', encoding='utf-8') as f:
             f.write(response.text)
