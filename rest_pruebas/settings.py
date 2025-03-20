@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'empleados',
     'experiencias',
     'servicios',
+    'chatbot',
 ]
 
 MIDDLEWARE = [

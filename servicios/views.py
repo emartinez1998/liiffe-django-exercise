@@ -7,12 +7,24 @@ import re
 import psycopg2
 from django.conf import settings
 import certifi
+import environ
+import os
+
+# Cargar variables de entorno
+env = environ.Env(
+    DEBUG=(bool, False)  # Define el tipo de dato por defecto si no está en el archivo .env
+)
+
+# Leer el archivo .env
+environ.Env.read_env(os.path.join('.env'))
 
 # TripAdvisor API Key
-TRIPADVISOR_KEY = '4DA558B86CE54BF883B26708661637C8'
+TRIPADVISOR_KEY = env('KEY_TRIP_ADVISOR')
 
 # Oxylabs Proxy Configuration
-USERNAME, PASSWORD = 'liiffe_tester_MIrzJ', '23789Amds_1212'
+USERNAME = env('USER_OXYLABS')
+PASSWORD = env('PASS_OXYLABS')
+
 
 
 
@@ -43,7 +55,7 @@ def crearURL(ciudad, lugar, categoria, criterio):
 def scrapingTripAdvisor(urlTripAdvisor):
     """Hace scraping a la URL y guarda el HTML en un archivo."""
     try:
-        response = requests.get(urlTripAdvisor, headers=headers, proxies=proxies, verify=certifi.where())
+        response = requests.get(urlTripAdvisor, headers=headers, proxies=proxies, verify=False)
 
         with open('tripadvisor_result.html', 'w', encoding='utf-8') as f:
             f.write(response.text)
